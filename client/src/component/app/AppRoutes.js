@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import PrivateRoute from '../private-route/PrivateRoute';
 import { makeStyles } from '@material-ui/core';
 import { Login, Register, Catalog } from '../../pages';
 
@@ -18,6 +19,7 @@ function AppRoutes() {
       <Switch>
         <Route exact path="/api/users/login" component={Login}/>
         <Route exact path="/api/users/register" component={Register}/>
+        <PrivateRoute exact path="/catalog" component={Catalog}/>
       </Switch>
     </div>
   )

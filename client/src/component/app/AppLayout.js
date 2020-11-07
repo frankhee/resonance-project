@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Header from "../ui/Header";
 import AppRoutes from "./AppRoutes";
 
 const useStyle = makeStyles((theme) => ({
@@ -20,9 +19,7 @@ function Layout() {
   const classes = useStyle();
   return (
     <div className={classes.pageContainer}>
-      <Header>
-        <AppRoutes/>
-      </Header>
+      <AppRoutes/>
     </div>
   );
 }

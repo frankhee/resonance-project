@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { logoutUser } from '../../../store/actions/userActions'
 import { makeStyles } from '@material-ui/core/styles';
 import { AccountCircleRounded } from '@material-ui/icons';
-import { Typography, IconButton } from "@material-ui/core";
+import { 
+  Typography, 
+  IconButton, 
+  Menu, 
+  MenuItem
+} from '@material-ui/core';
 import PropTypes from "prop-types";
 
 const useStyle = makeStyles((theme) => ({
@@ -25,7 +32,6 @@ const useStyle = makeStyles((theme) => ({
     borderRadius: "1px",
     border: "1px solid borderGrey",
     color: "black",
-    marginBottom: "20px",
     width: "100%",
     height: "54px",
     display: "flex",
@@ -52,8 +58,22 @@ const useStyle = makeStyles((theme) => ({
   }
 }));
 
-function Header({ children }) {
+function Header({ children, logoutUser }) {
   const classes = useStyle();
+  const [anchorEl, setAnchorEl] = useState(null);
+
+	const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogOut = () => {
+    handleClose();
+    logoutUser();
+  }
 
   return (
     <div className={classes.pageContainer}>
@@ -66,10 +86,19 @@ function Header({ children }) {
         <div className={classes.rightHeaderBarContainer}>
           <IconButton
             aria-label="access-account"
-            onClick={() => console.log("Account button clicked")}
-          >
+            onClick={(event) => handleClick(event)}
+            >
             <AccountCircleRounded color="action" fontSize="large"/>
           </IconButton>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleLogOut}>Logout</MenuItem>
+          </Menu>
         </div>
       </div>
       <div className={classes.mainBodyContainer}>
@@ -83,4 +112,4 @@ Header.propTypes = {
   children: PropTypes.object
 };
 
-export default Header;
+export default connect(null, { logoutUser })(Header);

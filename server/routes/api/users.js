@@ -20,14 +20,18 @@ router.post("/register", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  let isCreated = false, hashedPassword = "";
+  let isCreated = "", hashedPassword = "";
   base('Users').select({
     filterByFormula: `OR(key = '${req.body.email}', username = '${req.body.username}')`,
     view: "Grid view"
   }).eachPage(function page(records, fetchNextPage) {
     // This function (`page`) will get called for each page of records.
     if(records.length) {
-      isCreated = true;
+      if(records[0].get("username") === req.body.username) {
+        isCreated = "username"
+      } else {
+        isCreated = "email"
+      }
     }
     // To fetch the next page of records, call `fetchNextPage`.
     // If there are more records, `page` will get called again.
@@ -36,8 +40,10 @@ router.post("/register", (req, res) => {
   
   }, function done(err) {
     if (err) { console.error(err); return; }
-    if(isCreated) {
-      return res.status(400).json({ message: "Email or username already exists!" });
+    if(isCreated === "username") {
+      return res.status(400).json({ username: "Username already exists!" });
+    } else if(isCreated === "email") {
+      return res.status(400).json({ email: "Email already exists!" });
     } else {
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(req.body.password, salt, (err, hash) => {
@@ -103,7 +109,7 @@ router.post("/login", (req, res) => {
             payload,
             "secret",
             {
-              expiresIn: 31556926 // 1 year in seconds
+              expiresIn: '1h'
             },
             (err, token) => {
               res.json({
@@ -115,7 +121,7 @@ router.post("/login", (req, res) => {
         } else {
           return res
             .status(400)
-            .json({ passwordincorrect: "Password incorrect" });
+            .json({ password: "Password incorrect" });
         }
       });
     }
@@ -127,7 +133,7 @@ router.post("/login", (req, res) => {
   }, function done(err) {
     if (err) { console.error(err); return; }
     if(!userExist) {
-      return res.status(404).json({ message: "Email or username not found" });
+      return res.status(404).json({ identifier: "Email or username not found" });
     }
   });
 });

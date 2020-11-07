@@ -3,17 +3,21 @@ const axios = require("axios");
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser')
 const users = require("./routes/api/users");
+const cors = require("cors");
 const app = express();
 require('dotenv').config();
 
-//Connect to Airtable
+//Middleware
+app.use(cors());
 
+//Connect to Airtable
 const Airtable = require('airtable');
 const base = new Airtable({apiKey: `${process.env.AIRTABLE_API_KEY}`}).base(`${process.env.AIRTABLE_DB_ID}`);
 
 
 // Bodyparser middleware
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.use(cookieParser());
 
 
