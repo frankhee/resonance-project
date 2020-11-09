@@ -1,8 +1,8 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import AppRoutes from "./AppRoutes";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import AppRoutes from './AppRoutes';
 
-const useStyle = makeStyles((theme) => ({
+const useStyle = makeStyles(() => ({
   pageContainer: {
     margin: "0px",
     padding: "0px",

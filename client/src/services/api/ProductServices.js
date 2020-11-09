@@ -1,5 +1,6 @@
 import HttpRequest from './HttpRequest';
 
+//Request to load product catalog
 function getCatalog() {
   return HttpRequest({
     url: `/api/products/allproducts`,
@@ -7,6 +8,7 @@ function getCatalog() {
   });
 };
 
+//Request to send additional product information to user
 function getProduct(id) {
   return HttpRequest({
     url: `/api/products/product`,

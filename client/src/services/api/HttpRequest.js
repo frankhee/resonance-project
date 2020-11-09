@@ -1,9 +1,11 @@
 import axios from 'axios';
 
+//Initialize Axios instance
 const client = axios.create({
   baseURL: "http://localhost:5000/"
 });
 
+//Attach JWT token to axios calls
 export function setAuthToken(authToken) {
   client.defaults.headers.common["Authorization"] = authToken;
   client.defaults.withCredentials = true;

@@ -11,34 +11,18 @@ import {
 } from '@material-ui/core';
 import PropTypes from "prop-types";
 
-const useStyle = makeStyles((theme) => ({
-  rightHeaderBarContainer: {
-    display: 'flex',
-    flexDirection: "row",
-    justifyContent: 'flex-end',
-    alignItems: "center",
-    width: "50%"
-  },
-  leftHeaderBarContainer: {
-    display: 'flex',
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    width: "50%",
-    padding: '20px'
-  },
+const useStyle = makeStyles(() => ({
   headerBarContainer: {
-    backgroundColor: '#F2F3F0',
+    backgroundColor: 'black',
     borderRadius: "1px",
     border: "1px solid borderGrey",
-    color: "black",
+    color: "white",
     width: "100%",
-    height: "54px",
+    height: "70px",
     display: "flex",
     flexDirection: "row",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     alignItems: "center",
-    boxShadow: '0 2px 10px 0 rgba(0, 0, 0, 0.16)'
   },
   mainBodyContainer: {
     display: "flex",
@@ -55,6 +39,16 @@ const useStyle = makeStyles((theme) => ({
     alignItems: "flex-start",
     width: "100%",
     height: "100%",
+  },
+  title: {
+    marginLeft: 'auto'
+  },
+  userButtons: {
+    color: 'white',
+    fontSize: 50,
+  },
+  iconButton: {
+    marginLeft: 'auto'
   }
 }));
 
@@ -78,28 +72,31 @@ function Header({ children, logoutUser }) {
   return (
     <div className={classes.pageContainer}>
       <div className={classes.headerBarContainer}> 
-        <div className={classes.leftHeaderBarContainer}>
-          <Typography variant="h6" noWrap>
-              Resonance Catalog
-          </Typography>
-        </div>
-        <div className={classes.rightHeaderBarContainer}>
-          <IconButton
-            aria-label="access-account"
-            onClick={(event) => handleClick(event)}
-            >
-            <AccountCircleRounded color="action" fontSize="large"/>
-          </IconButton>
-          <Menu
-            id="simple-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
+        <Typography 
+          variant="h4" 
+          noWrap 
+          className={classes.title}
+        >
+            Resonance Catalog
+        </Typography>
+        <IconButton
+          aria-label="access-account"
+          onClick={(event) => handleClick(event)}
+          className={classes.iconButton}
           >
-            <MenuItem onClick={handleLogOut}>Logout</MenuItem>
-          </Menu>
-        </div>
+          <AccountCircleRounded 
+            className={classes.userButtons}
+          />
+        </IconButton>
+        <Menu
+          id="simple-menu"
+          anchorEl={anchorEl}
+          keepMounted
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={handleLogOut}>Logout</MenuItem>
+        </Menu>
       </div>
       <div className={classes.mainBodyContainer}>
         {children}

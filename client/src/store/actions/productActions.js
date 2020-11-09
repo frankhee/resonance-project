@@ -4,6 +4,7 @@ export const LOAD_PRODUCT_START = "LOAD_PRODUCT_START";
 export const LOAD_PRODUCT_SUCCESS = "LOAD_PRODUCT_SUCCESS";
 export const MOER_PRODUCTS_TO_LOAD = "MOER_PRODUCTS_TO_LOAD";
 
+//Load product catalog
 export const loadProduct = () => {
   return function(dispatch) {
     dispatch(loadProductStart())

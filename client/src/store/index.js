@@ -4,6 +4,7 @@ import reduxImmutableStateInvariant from "redux-immutable-state-invariant";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 
+//Redux set up
 const middleware = [thunk];
 
 if (process.env.NODE_ENV === "development") {

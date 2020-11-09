@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import Header from "../../component/ui/Header";
 import ProductCard from "../../component/widgets/ProductCard";
@@ -36,7 +36,7 @@ function Layout({ products, auth, loadProduct, moreProducts }) {
   function loadMoreProducts() {
     const loadProductAsync = async () => await loadProduct();
     loadProductAsync();
-  }
+  };
 
   useEffect(() => {
     const loadProductAsync = async () => await loadProduct();

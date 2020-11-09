@@ -29,14 +29,6 @@ export function productReducer(state = initialState, action) {
           ...state,
           moreProducts: action.payload
         };
-      // {
-      //   ...state,
-      //   products: {
-      //     ...state.products,
-      //     [action.payload.id] : action.payload.fields
-      //   },
-      //   loading: false
-      // };
     default:
       return state;
   }

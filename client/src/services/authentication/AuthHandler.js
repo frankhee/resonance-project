@@ -2,10 +2,10 @@ import { useEffect }  from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
 import jwt_decode from "jwt-decode";
-// import setAuthToken from "../../services/authentication/setAuthToken";
 import { setAuthToken } from "../../services/api/HttpRequest";
 import * as UserActions from "../../store/actions/userActions";
 
+//Check if user is authenticated
 function AuthHandler({ actions, auth }) {
   useEffect(() => {
     // Check for token to keep user logged in

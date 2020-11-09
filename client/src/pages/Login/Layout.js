@@ -63,7 +63,7 @@ function Layout({auth, error, loginUser}) {
       password: password
     }
     loginUser(userData);
-  }
+  };
 
   return (
     <Grid container component="main" className={classes.root}>

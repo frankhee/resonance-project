@@ -14,7 +14,7 @@ import {
    Fade
  } from "@material-ui/core";
  
-const useStyle = makeStyles((theme) => ({
+const useStyle = makeStyles(() => ({
   root: {
     margin: 30,
     maxWidth: 345,
