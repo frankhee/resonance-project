@@ -7,4 +7,9 @@ const productUtilities = require("../../controllers/product/productUtilities")
 // @access Public
 router.get("/allproducts", productUtilities.handleGetProducts);
 
+// @route GET api/product:id
+// @desc Get specified product info
+// @access Public
+router.post("/product", productUtilities.sendProductInfo);
+
 module.exports = router;

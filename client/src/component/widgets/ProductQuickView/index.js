@@ -5,7 +5,8 @@ import {
   makeStyles,
   Button,
   Typography,
-} from "@material-ui/core";
+} from '@material-ui/core';
+import ProductServices from '../../../services/api/ProductServices';
 
 const useStyle = makeStyles((theme) => ({
   viewContainer: {
@@ -48,6 +49,15 @@ const useStyle = makeStyles((theme) => ({
 
 function ProductQuickView({ id, product }) {
   const classes = useStyle();
+
+  async function sendInfo() {
+    const userKey = {
+      id: id
+    }
+    const response = await ProductServices.getProduct(userKey);
+    alert(response.message)
+  }
+
   return (
     <div className={classes.viewContainer}>
       <div className={classes.leftContainer}>
@@ -85,7 +95,11 @@ function ProductQuickView({ id, product }) {
           <Typography variant="h5" component="h2">
             ${product["Unit Cost"]}
           </Typography>
-          <Button variant='outlined' color='primary'>
+          <Button 
+            variant='outlined' 
+            color='primary'
+            onClick={() => sendInfo()}
+          >
             Send Product Information to Your Email
           </Button>
         </div>

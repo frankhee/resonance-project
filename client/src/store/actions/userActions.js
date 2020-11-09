@@ -1,5 +1,4 @@
 import UserServices from '../../services/api/UserServices';
-// import setAuthToken from "../../services/authentication/setAuthToken";
 import { setAuthToken } from "../../services/api/HttpRequest";
 import jwt_decode from "jwt-decode";
 
@@ -16,6 +15,7 @@ export const registerUser = (userData, history) => {
         history.push("/api/users/login");
       })
       .catch((err) => {
+        console.log(err)
         dispatch({
           type: GET_ERRORS,
           payload: err.data
