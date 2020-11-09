@@ -1,6 +1,5 @@
 const express = require("express");
 const axios = require("axios");
-const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
 const users = require("./routes/api/users");
