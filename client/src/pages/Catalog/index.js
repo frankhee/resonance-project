@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
-// import { registerUser } from '../../store/actions/userActions';
+import { loadProduct } from '../../store/actions/productActions';
 import Layout from './Layout';
 
 const mapStateToProps = (state) => ({
-  // auth: state.auth,
-  // errors: state.errors
+  products: state.product.products,
+  auth: state.user,
+  moreProducts: state.product.moreProducts
 });
 
 const mapDispatchToProps = {
-  // registerUser: registerUser
+  loadProduct: loadProduct
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout);

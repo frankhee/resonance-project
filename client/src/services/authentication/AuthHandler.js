@@ -2,7 +2,8 @@ import { useEffect }  from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
 import jwt_decode from "jwt-decode";
-import setAuthToken from "../../services/authentication/setAuthToken";
+// import setAuthToken from "../../services/authentication/setAuthToken";
+import { setAuthToken } from "../../services/api/HttpRequest";
 import * as UserActions from "../../store/actions/userActions";
 
 function AuthHandler({ actions, auth }) {

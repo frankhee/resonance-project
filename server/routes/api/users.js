@@ -87,6 +87,7 @@ router.post("/login", (req, res) => {
 
   const identifier = req.body.identifier
   const password = req.body.password;
+  const secret = process.env.JWT_SECRET;
   // Find user by email or username
   let userExist = false;
   base('Users').select({
@@ -107,7 +108,7 @@ router.post("/login", (req, res) => {
           // Sign token
           jwt.sign(
             payload,
-            "secret",
+            secret,
             {
               expiresIn: '1h'
             },

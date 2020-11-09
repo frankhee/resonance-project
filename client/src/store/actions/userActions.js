@@ -1,5 +1,6 @@
 import UserServices from '../../services/api/UserServices';
-import setAuthToken from "../../services/authentication/setAuthToken";
+// import setAuthToken from "../../services/authentication/setAuthToken";
+import { setAuthToken } from "../../services/api/HttpRequest";
 import jwt_decode from "jwt-decode";
 
 export const GET_ERRORS = "GET_ERRORS";
@@ -29,8 +30,6 @@ export const loginUser = (userData) => {
     dispatch(setUserLoading());
     return UserServices.loginUser(userData)
       .then((result) => {
-      // Save to localStorage
-
       // Set token to localStorage
       const token = result.token;
       localStorage.setItem("jwtToken", token);
@@ -66,7 +65,7 @@ export const logoutUser = () => {
 };
 
 // Set logged in user
-export const setCurrentUser = decoded => {
+export const setCurrentUser = (decoded) => {
   return {
     type: SET_CURRENT_USER,
     payload: decoded

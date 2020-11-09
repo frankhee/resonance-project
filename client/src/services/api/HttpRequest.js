@@ -4,6 +4,11 @@ const client = axios.create({
   baseURL: "http://localhost:5000/"
 });
 
+export function setAuthToken(authToken) {
+  client.defaults.headers.common["Authorization"] = authToken;
+  client.defaults.withCredentials = true;
+}
+
 /**
  * Request Wrapper with default success/error actions
  */

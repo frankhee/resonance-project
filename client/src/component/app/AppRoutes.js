@@ -19,7 +19,7 @@ function AppRoutes() {
       <Switch>
         <Route exact path="/api/users/login" component={Login}/>
         <Route exact path="/api/users/register" component={Register}/>
-        <PrivateRoute exact path="/catalog" component={Catalog}/>
+        <PrivateRoute exact path="/api/products/allproducts" component={Catalog}/>
       </Switch>
     </div>
   )
