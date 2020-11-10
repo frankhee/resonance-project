@@ -14,9 +14,9 @@ app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 
 app.use(express.static(path.join(__dirname, '../client/build')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
+// });
 
 
 //Connect to Airtable
