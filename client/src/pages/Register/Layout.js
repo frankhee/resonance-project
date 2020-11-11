@@ -46,7 +46,7 @@ function Layout({auth, registerUser, error}) {
 
   useEffect(() => {
     if(auth.isAuthenticated) {
-      history.push("/api/products/allproducts");
+      history.push("/products/allproducts");
     }
   }, [auth.isAuthenticated, history])
 
@@ -173,7 +173,7 @@ function Layout({auth, registerUser, error}) {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="/api/users/login" variant="body2">
+              <Link href="/#/login" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>

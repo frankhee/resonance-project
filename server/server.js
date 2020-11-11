@@ -5,24 +5,10 @@ const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
 const users = require("./routes/api/users");
 const products = require("./routes/api/products");
-const cors = require("cors");
 const app = express();
 require('dotenv').config();
 
-//Middleware
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
-
 app.use(express.static(path.join(__dirname, '../client/build')));
-
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
-// });
-
-
-//Connect to Airtable
-const Airtable = require('airtable');
-const base = new Airtable({apiKey: `${process.env.AIRTABLE_API_KEY}`}).base(`${process.env.AIRTABLE_DB_ID}`);
-
 
 // Bodyparser middleware
 app.use(bodyParser.urlencoded({extended: false}));

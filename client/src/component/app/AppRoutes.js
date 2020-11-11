@@ -18,9 +18,9 @@ function AppRoutes() {
     <div className={classes.mainPageContainer}>
       <Switch>
         <Route exact path="/" component={RedirectPage}/>
-        <Route exact path="/api/users/login" component={Login}/>
-        <Route exact path="/api/users/register" component={Register}/>
-        <PrivateRoute exact path="/api/products/allproducts" component={Catalog}/>
+        <Route exact path="/login" component={Login}/>
+        <Route exact path="/register" component={Register}/>
+        <PrivateRoute exact path="/products/allproducts" component={Catalog}/>
       </Switch>
     </div>
   )

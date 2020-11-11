@@ -12,7 +12,7 @@ export const registerUser = (userData, history) => {
   return function(dispatch) {
     return UserServices.registerUser(userData)
       .then((result) => {
-        history.push("/api/users/login");
+        history.push("/login");
       })
       .catch((err) => {
         console.log(err)

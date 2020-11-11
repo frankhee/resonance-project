@@ -2,7 +2,7 @@ import axios from 'axios';
 
 //Initialize Axios instance
 const client = axios.create({
-  baseURL: "http://localhost:5000/"
+  baseURL: "http://3.139.75.203/"
 });
 
 //Attach JWT token to axios calls
