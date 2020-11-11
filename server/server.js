@@ -8,6 +8,11 @@ const products = require("./routes/api/products");
 const app = express();
 require('dotenv').config();
 
+//*********COMMENT OUT FOR DEPLOY*********//
+// const cors = require('cors');
+// app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+//*****************************************//
+
 app.use(express.static(path.join(__dirname, '../client/build')));
 
 // Bodyparser middleware

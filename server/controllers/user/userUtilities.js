@@ -40,9 +40,9 @@ function registerUser(req, res) {
     if (err) { console.error(err); return; }
     //If username or email exists, return error message
     if(isCreated === "username") {
-      return res.status(400).json({ username: "Username already exists!" });
+      return res.status(400).json({ new_username: "Username already exists!" });
     } else if(isCreated === "email") {
-      return res.status(400).json({ email: "Email already exists!" });
+      return res.status(400).json({ new_email: "Email already exists!" });
     } else {
       //Encrypt input password before storing in Airtable
       bcrypt.genSalt(10, (err, salt) => {
@@ -117,7 +117,7 @@ function loginUser(req, res) {
         } else {
           return res
             .status(400)
-            .json({ password: "Password incorrect" });
+            .json({ existing_password: "Password incorrect" });
         }
       });
     }
@@ -129,7 +129,7 @@ function loginUser(req, res) {
   }, function done(err) {
     if (err) { console.error(err); return; }
     if(!userExist) {
-      return res.status(404).json({ identifier: "Email or username not found" });
+      return res.status(404).json({ existing_identifier: "Email or username not found" });
     }
   });
 }

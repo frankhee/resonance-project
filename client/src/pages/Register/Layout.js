@@ -79,62 +79,62 @@ function Layout({auth, registerUser, error}) {
                 autoComplete="fname"
                 name="firstName"
                 variant="outlined"
-                error={error.firstname && error.firstname.length > 0}
+                error={error.new_firstname && error.new_firstname.length > 0}
                 required
                 fullWidth
                 id="firstName"
                 label="First Name"
                 autoFocus
-                helperText={error.firstname}
+                helperText={error.new_firstname}
                 onChange={(event) => setFirstName(event.target.value)}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
                 variant="outlined"
-                error={error.lastname && error.lastname.length > 0}
+                error={error.new_lastname && error.new_lastname.length > 0}
                 required
                 fullWidth
                 id="lastName"
                 label="Last Name"
                 name="lastName"
                 autoComplete="lastname"
-                helperText={error.lastname}
+                helperText={error.new_lastname}
                 onChange={(event) => setLastName(event.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                error={error.email && error.email.length > 0}
+                error={error.new_email && error.new_email.length > 0}
                 required
                 fullWidth
                 id="email"
                 label="Email Address"
                 name="email"
                 autoComplete="email"
-                helperText={error.email}
+                helperText={error.new_email}
                 onChange={(event) => setEmail(event.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                error={error.username && error.username.length > 0}
+                error={error.new_username && error.new_username.length > 0}
                 required
                 fullWidth
                 id="username"
                 label="Username"
                 name="username"
                 autoComplete="username"
-                helperText={error.username}
+                helperText={error.new_username}
                 onChange={(event) => setUserName(event.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                error={error.password && error.password.length > 0}
+                error={error.new_password && error.new_password.length > 0}
                 required
                 fullWidth
                 name="password"
@@ -142,14 +142,14 @@ function Layout({auth, registerUser, error}) {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                helperText={error.password}
+                helperText={error.new_password}
                 onChange={(event) => setPassword(event.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
-                error={error.confirmPassword && error.confirmPassword.length > 0}
+                error={error.new_confirmPassword && error.new_confirmPassword.length > 0}
                 required
                 fullWidth
                 name="confirm password"
@@ -157,7 +157,7 @@ function Layout({auth, registerUser, error}) {
                 type="password"
                 id="confirmPassword"
                 autoComplete="confirm-password"
-                helperText={error.confirmPassword}
+                helperText={error.new_confirmPassword}
                 onChange={(event) => setConfirmPassword(event.target.value)}
               />
             </Grid>

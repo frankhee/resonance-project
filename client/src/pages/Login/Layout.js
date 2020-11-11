@@ -81,7 +81,7 @@ function Layout({auth, error, loginUser}) {
             <TextField
               variant="outlined"
               margin="normal"
-              error={error.identifier && error.identifier.length > 0}
+              error={error.existing_identifier && error.existing_identifier.length > 0}
               required
               fullWidth
               id="identifier"
@@ -89,13 +89,13 @@ function Layout({auth, error, loginUser}) {
               name="identifier"
               autoComplete="identifier"
               autoFocus
-              helperText={error.identifier}
+              helperText={error.existing_identifier}
               onChange={(event) => setIdentifier(event.target.value)}
             />
             <TextField
               variant="outlined"
               margin="normal"
-              error={error.password && error.password.length > 0}
+              error={error.existing_password && error.existing_password.length > 0}
               required
               fullWidth
               name="password"
@@ -103,7 +103,7 @@ function Layout({auth, error, loginUser}) {
               type="password"
               id="password"
               autoComplete="current-password"
-              helperText={error.password}
+              helperText={error.existing_password}
               onChange={(event) => setPassWord(event.target.value)}
             />
             <Button

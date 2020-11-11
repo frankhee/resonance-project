@@ -1,9 +1,19 @@
 import axios from 'axios';
 
+//*******FOR LOCAL DEVELOPMENT*******/
+//Initialize Axios instance
+// const client = axios.create({
+//   baseURL: "http://localhost:5000/"
+// });
+//*********************************/
+
+
+//*******FOR DEPLOYMENT*******/
 //Initialize Axios instance
 const client = axios.create({
   baseURL: "http://3.139.75.203/"
 });
+//*********************************/
 
 //Attach JWT token to axios calls
 export function setAuthToken(authToken) {
