@@ -111,7 +111,7 @@ async function sendProductInfo(req, res) {
         const productFields = response.data.fields;
         const mailOptions = {
           from: `${process.env.GMAIL_USERNAME}`,
-          to: `${decoded.key}, frankheeeee@gmail.com`,
+          to: `${decoded.key}, techpirates@resonance.nyc`,
           subject: `More information on ${productFields.Name}`,
           html: `<h3>Below is the requested information of ${productFields.Name},</h3><p><b>Description:</b> ${productFields.Description}</p><p><b>Link to product:</b> ${productFields.Link}</p>`
         };
