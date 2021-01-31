@@ -11,7 +11,7 @@ import axios from 'axios';
 //*******FOR DEPLOYMENT*******/
 //Initialize Axios instance
 const client = axios.create({
-  baseURL: "http://3.139.75.203/"
+  baseURL: "http://3.23.97.76/"
 });
 //*********************************/
 
